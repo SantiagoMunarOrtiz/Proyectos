@@ -1,0 +1,13 @@
+{
+    "nombre": "santiago munar",
+    "edad": 35 ,
+    "esEstudiante":false,
+    "dirrecion":{
+        "calle":"Av.Siemprevivas 742",
+        "Ciudad":"Springfield"
+    },
+    "telefonos":[
+        "555555",
+        "310815623"
+    ]
+}

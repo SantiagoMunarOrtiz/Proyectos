@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="nombre"></div>
+    <script>
+        let datosJson;
+       // Hacemos una solicitud para obtener el archivo JSON 'persona.json'
+        fetch('persona.json')
+    // La función then() maneja la respuesta de la solicitud fetch
+    .then(res => res.json()) // Convertimos la respuesta a formato JSON
+    // La siguiente función then() maneja los datos obtenidos del archivo JSON
+    .then((salida) => {
+        // Asignamos los datos obtenidos a la variable datosJson
+        datosJson = salida;
+
+        // Seleccionamos el elemento <div> con el ID "nombre"
+        let elementoTexto = document.getElementById('nombre');
+
+        // Asignamos el nombre obtenido del JSON al contenido del elemento <div>
+        elementoTexto.textContent = datosJson.nombre;
+    })
+    // El método .catch() maneja los errores que puedan ocurrir durante la solicitud o el procesamiento de los datos
+    .catch(function(error){
+        // Si ocurre un error, se muestra una alerta con el mensaje de error
+        alert(error);
+    });
+
+    </script>
+</body>
+</html>

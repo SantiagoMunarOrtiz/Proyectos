@@ -1,0 +1,9 @@
+{
+    "Nombre": "Frank carvajal",
+    "NroCuenta":"31232343.",
+    "Saldo":{
+        "USD":"3200",
+        "EUR":"2900"
+    },
+    "CBU":"121223213"
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <h1>Banco Registro</h1>
+    <div id="text"></div>
+    <div id="numero"></div>
+
+
+
+        <script >
+        let Datosjson;
+        fetch('Banco.json')
+        .then(res => res.json())
+        .then(salida => {
+            let Datosjson = salida;
+
+            let Datos = document.getElementById("text")
+            Datos.textContent = Datosjson.Nombre
+            
+        })
+        .catch(function(error){
+            alert(error)
+        })
+        
+        let xhr = new XMLHttpRequest();
+        xhr.open('get','Banco.json',true);
+        xhr.responseType = 'json';
+        xhr.onload =function(){
+            if(xhr.status === 200){
+                Datosjson = xhr.response;
+
+            let Datos = document.getElementById("numero")
+            Datos.textContent = Datosjson.NroCuenta;
+            }else{
+                // manejar El error 
+            }
+
+        
+        }
+        xhr.send()
+
+        .catch(function(error){
+            alert(error)
+        })
+
+
+    
+    </script>
+</body>
+</html>

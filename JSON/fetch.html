@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Aquí creamos un div con el ID "nombre" donde se mostrará el nombre obtenido del archivo JSON -->
+    <div id="nombre"></div>
+
+    <!-- Script de JavaScript -->
+    <script>
+        // Definimos una variable para almacenar los datos del archivo JSON
+        let datosJson;
+
+        // Usamos la función fetch() para obtener el archivo JSON 'persona.json'
+        fetch('persona.json')
+        // La función then() maneja la respuesta de la solicitud fetch
+        .then(res => res.json()) // Convertimos la respuesta a formato JSON
+        // La siguiente función then() maneja los datos obtenidos del archivo JSON
+        .then((salida) => {
+            // Asignamos los datos obtenidos a la variable datosJson
+            datosJson = salida;
+
+            // Seleccionamos el elemento <div> con el ID "nombre"
+            let elementoTexto = document.getElementById('nombre');
+
+            // Asignamos el nombre obtenido del JSON al contenido del elemento <div>
+            elementoTexto.textContent = datosJson.nombre;
+        })
+    </script>
+</body>
+</html>
