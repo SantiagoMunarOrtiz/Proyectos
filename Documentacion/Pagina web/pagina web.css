@@ -1,0 +1,329 @@
+
+*{
+    box-sizing: border-box;
+                     /* para que todos los elementos */
+}
+html{
+scroll-behavior: smooth;   /* cuando baja es mas natural */
+}
+
+
+body{
+    font-family:sans-serif ;
+
+margin: 0;
+}
+h1{
+    font-size: 3.5em;
+}
+h2{
+    font-size: 2.7em;
+}
+h3{
+    font-size: 2em;
+}
+p{
+    font-size: 1.25em;
+}
+ul{
+    list-style: none;
+}
+li{
+    font-size: 1.25em;
+
+}
+
+
+button{
+    font-size: 1.3em;
+    font-weight: bold;
+    padding:10px 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 10px ;
+    color: white;
+    background-color: blueviolet;
+
+}
+button:hover{
+    background-color: rgb(129, 68, 186);
+}
+.container{
+    max-width: 1400px;
+    margin: auto;
+    
+}
+header {
+background-color: #fff7f7;
+}
+
+
+header .logo{
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: blueviolet;
+    font-size: 1.6em;
+
+}
+header  .container {
+    display: flex;
+    flex-direction:  column;
+    align-items: center;
+
+}
+header nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+header a {
+    padding: 5px 12px ;
+    text-decoration: none;
+    font-weight:bold;
+    color: rgb(3, 0, 6);
+}
+header a:hover{
+    color: blueviolet;
+}
+#hero{
+    display:  flex;
+    align-items: center;
+    justify-content: center;                                              /* Pon ga la imagen al centro*/
+    text-align: center;                       
+    flex-direction: column;
+    height: 90vh;
+    color: white;
+    background-image: linear-gradient(                                     /*para que haya un efecto oscuro en las imagenes */    
+                                                                            /* para poner una imagen guardada*/
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)                
+    )
+
+    ,url("media/programacion-base-datos.jpeg");    
+    background-repeat:no-repeat;                                  /*para que no se repita*/
+    background-size: cover;                                        /* para que no me deje espacios negros disponibles */
+    background-position:center;
+}  
+#hero h1{
+color:  white; 
+}
+#hero button{
+    font-size: 1.75em;
+}
+#somospro .container{
+    text-align: center;
+    padding: 150px 12px;
+
+}
+.coloracento{
+    color: blueviolet;
+}
+
+#n{
+    background-color: rgb(21, 20, 20);
+    color: white;
+    text-align: center;
+}
+#n .container {
+    padding: 100px 10px;
+}
+#n .p{
+    display: none;
+}
+#n h2{
+    margin-top: 0%;
+}
+#n .carta{
+    background-position: center center ;
+    background-size: cover;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 18px;
+
+
+}
+.carta:first-child {                           /* Sirve para solo seleccionar el primero de 3 que hay en html */
+    background-image: linear-gradient(                                     /*para que haya un efecto oscuro en las imagenes */    
+    /* para poner una imagen guardada*/
+0deg,
+rgba(0,0,0,0.5),
+rgba(0,0,0,0.5)                
+)
+
+,url("media/black.webp");   
+background-repeat:repeat;                                  /*para que no se repita*/
+    background-size: cover;                                        /* para que no me deje espacios negros disponibles */
+    background-position:center; 
+
+}  
+
+.carta:nth-child(2){
+    background-image: linear-gradient(                                     /*para que haya un efecto oscuro en las imagenes */    
+    /* para poner una imagen guardada*/
+0deg,
+rgba(0,0,0,0.5),
+rgba(0,0,0,0.5)                
+)
+
+,url("media/imagen2.webp");  
+background-repeat:no-repeat;                                  /*para que no se repita*/
+    background-size: cover;                                        /* para que no me deje espacios negros disponibles */
+    background-position:center;  
+    
+
+}
+.carta:nth-child(3){
+    background-image: linear-gradient(                                     /*para que haya un efecto oscuro en las imagenes */    
+    /* para poner una imagen guardada*/
+0deg,
+rgba(0,0,0,0.5),
+rgba(0,0,0,0.5)                
+)
+
+,url("media/122.jpeg");   
+background-repeat:no-repeat;                                  /*para que no se repita*/
+    background-size: cover;                                        /* para que no me deje espacios negros disponibles */
+    background-position:center; 
+
+}
+#caracteristicas .container{
+    text-align: center;
+
+}
+#caracteristicas li {
+    margin: 12px o px;
+    font-weight: bold;
+}
+    #ap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: black;
+        color: white;
+        height: 40%;
+}
+#ap h2 {
+    font-size: 3em;
+}
+#ap button{
+    font-size: 2em;
+}
+footer{
+    background-color: rgb(255, 254, 254);
+}
+footer p{
+   
+    margin: 0px ;
+    padding: 14px;
+    color: #858383;
+}
+footer .container {
+    height: 150px;
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+}
+     @media(min-width:720px){ 
+            header {
+                position: fixed;
+                width: 100%;
+            }
+            header .container{
+                flex-direction: row;
+                justify-content: space-between;
+
+
+
+
+            }
+            header nav{
+                flex-direction: row;
+                padding-bottom: 0;
+                padding-right: 20px;
+            }
+            #somospro .container {
+            display: flex;
+            justify-content: space-evenly;
+            }
+            #somospro .texto{
+                width: 50%;
+                max-width: 600px;
+                text-align: initial;
+                padding-left: 50px;
+                padding: 0px 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+            }
+            #somospro .img-container {
+                background-image: linear-gradient(
+                    0deg,
+                    rgba(0,0,0,0.5),
+                    rgba(0,0,0,0.5)
+                ),url("media/Persona-programando.png");
+                background-size:cover;
+                background-position: center center;
+                height: 500px;
+                width: 400px;
+
+            }
+            #somospro h2 {
+            margin-top: 0;
+
+
+            }
+            #n    .programas{
+                display: flex;
+                justify-content: center;
+                
+            }
+            #n p{
+                display: block;
+                margin-bottom: 30px;
+            }
+            #n .carta{
+                padding: 80px;
+                background-size: 100% 150px;
+                background-repeat: no-repeat;
+                background-position-y:0;
+                background-color: #505050;
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            }
+            #n h3{
+                margin: 0px;
+
+            }
+            footer .container{
+                justify-content: flex-end;
+            }
+            #caracteristicas {
+            background-image:url("media/icono-de-experiencia-laboral-ilustración-vectorial-aislada-en-fondo-blanco-163822837.jpeg");
+                padding:  180px;
+                background-repeat: no-repeat;
+            }
+            #caracteristica .container {
+                text-align: initial;
+            }
+            #caracteristicas .ul {
+                margin-left: 100px;
+            }
+            #op button {
+                font-size: 2em;
+            }
+            @media (min-width: 1000px) {
+                #caracteristicas{
+                    background-position-x:calc();
+                }
+            }
+            
+
+}
