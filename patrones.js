@@ -1,14 +1,12 @@
-// Singleton para el reproductor de música
+// Implementación del patrón Singleton para el reproductor de música
 const MusicPlayer = (function() {
     let instance;
 
     function createInstance() {
-        // Métodos y propiedades privados
         let isPlaying = false;
         let currentSong = null;
 
         return {
-            // Métodos públicos
             play: function(song) {
                 if (!isPlaying) {
                     currentSong = song;
@@ -34,12 +32,6 @@ const MusicPlayer = (function() {
                 } else {
                     console.log("No hay ninguna canción reproduciéndose.");
                 }
-            },
-            getCurrentSong: function() {
-                return currentSong;
-            },
-            isPlaying: function() {
-                return isPlaying;
             }
         };
     }
@@ -54,13 +46,83 @@ const MusicPlayer = (function() {
     };
 })();
 
-// Uso del Singleton
-const player1 = MusicPlayer.getInstance();
-const player2 = MusicPlayer.getInstance();
+// Implementación del patrón Command para manejar las acciones del usuario
+class MusicCommand {
+    constructor(action) {
+        this.action = action;
+    }
 
-console.log(player1 === player2); // Devuelve true, solo hay una instancia del reproductor
+    execute() {
+        this.action();
+    }
+}
 
-player1.play("Canción 1");
-player2.play("Canción 2"); // No reproducirá, ya que hay una canción reproduciéndose en player1
-player1.pause();
-player2.stop();
+// Implementación del patrón MVC (Modelo-Vista-Controlador)
+class Model {
+    constructor() {
+        this.currentSong = null;
+        this.isPlaying = false;
+    }
+
+    setSong(song) {
+        this.currentSong = song;
+    }
+
+    play() {
+        this.isPlaying = true;
+        console.log("Reproduciendo: " + this.currentSong);
+    }
+
+    pause() {
+        this.isPlaying = false;
+        console.log("Pausa.");
+    }
+
+    stop() {
+        this.isPlaying = false;
+        this.currentSong = null;
+        console.log("Reproductor detenido.");
+    }
+}
+
+class View {
+    render(message) {
+        console.log(message);
+    }
+}
+
+class Controller {
+    constructor(model, view) {
+        this.model = model;
+        this.view = view;
+    }
+
+    play(song) {
+        this.model.setSong(song);
+        this.model.play();
+        this.view.render("Reproduciendo: " + song);
+    }
+
+    pause() {
+        this.model.pause();
+        this.view.render("Pausa.");
+    }
+
+    stop() {
+        this.model.stop();
+        this.view.render("Reproductor detenido.");
+    }
+}
+
+// Uso de los patrones implementados
+const model = new Model();
+const view = new View();
+const controller = new Controller(model, view);
+
+const playCommand = new MusicCommand(() => controller.play("Canción 1"));
+const pauseCommand = new MusicCommand(() => controller.pause());
+const stopCommand = new MusicCommand(() => controller.stop());
+
+playCommand.execute();
+pauseCommand.execute();
+stopCommand.execute();
